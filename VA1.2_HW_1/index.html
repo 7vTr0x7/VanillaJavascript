@@ -1,11 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <label for="ageInput">Enter Your Age: </label>
+    <input type="text" id="ageInput" />
+    <button id="validateAge">Validate Age</button>
+    <p id="validationResult"></p>
+
+    <label for="animalInput">Enter Your Favorite Animal: </label>
+    <input type="text" id="animalInput" />
+    <button id="displayAnimalBtn">Display animal</button>
+    <p id="displayAnimalResult"></p>
+
+    <label for="colorInput">Enter Your Favorite Color: </label>
+    <input type="text" id="colorInput" />
+    <button id="displayColorBtn">Display Color</button>
+    <p id="displayColorResult"></p>
+
+    <label for="ansInput">Yes/No Question: </label>
+    <input type="text" id="ansInput" />
+    <button id="displayMsgBtn">Display message</button>
+    <p id="displayMsgResult"></p>
+
+    <label for="numberInput">Enter number: </label>
+    <input type="number" id="numberInput" />
+    <button id="check">Check</button>
+    <p id="checkResult"></p>
+
+    <script>
+      const ageInput = document.getElementById("ageInput");
+      const validateAgeBtn = document.getElementById("validateAge");
+      const validationResult = document.getElementById("validationResult");
+
+      validateAgeBtn.addEventListener("click", () => {
+        const age = ageInput.value;
+
+        if (age >= 18 && age <= 100) {
+          validationResult.textContent = "Valid Age";
+        } else {
+          validationResult.textContent = "Invalid Age";
+        }
+      });
+
+      const animalInput = document.getElementById("animalInput");
+      const displayAnimalBtn = document.getElementById("displayAnimalBtn");
+      const displayAnimalResult = document.getElementById(
+        "displayAnimalResult"
+      );
+
+      displayAnimalBtn.addEventListener("click", () => {
+        const name = animalInput.value;
+        displayAnimalResult.textContent = `Animal name : ${name}`;
+      });
+
+      const colorInput = document.getElementById("colorInput");
+      const displayColorBtn = document.getElementById("displayColorBtn");
+      const displayColorResult = document.getElementById("displayColorResult");
+
+      displayColorBtn.addEventListener("click", () => {
+        const color = colorInput.value;
+
+        displayColorResult.textContent = `Color : ${color}`;
+      });
+
+      const ansInput = document.getElementById("ansInput");
+      const displayMsgBtn = document.getElementById("displayMsgBtn");
+      const displayMsgResult = document.getElementById("displayMsgResult");
+
+      displayMsgBtn.addEventListener("click", () => {
+        const ans = ansInput.value;
+
+        displayMsgResult.textContent = `You Said : ${ans}`;
+      });
+
+      const numberInput = document.getElementById("numberInput");
+      const check = document.getElementById("check");
+      const checkResult = document.getElementById("checkResult");
+
+      check.addEventListener("click", () => {
+        const number = numberInput.value;
+
+        if (number % 2 === 0) {
+          checkResult.textContent = `${number} is Even`;
+        } else {
+          checkResult.textContent = `${number} is Odd`;
+        }
+      });
+    </script>
+  </body>
 </html>
