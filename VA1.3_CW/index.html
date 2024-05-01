@@ -5,5 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <label for="feedback">Your Feedback:</label>
+    <textarea id="feedback" rows="4" cols="50"></textarea>
+    <button id="feedbackSubmitBtn">submit</button>
+    <p id="feedbackResult"></p>
+
+    <label for="addressTextarea">Your Address:</label>
+    <textarea id="addressTextarea" rows="4" cols="50"></textarea>
+    <button id="addressSubmitBtn">Display Address</button>
+    <p id="addressResult"></p>
+
+    <label for="descriptionTextarea"> Description:</label>
+    <textarea id="descriptionTextarea" rows="4" cols="50"></textarea>
+    <button id="descriptionSubmitBtn">Display Description</button>
+    <p id="descriptionResult"></p>
+
+    <script>
+      const feedbackTextarea = document.getElementById("feedback");
+      const feedbackSubmitBtn = document.getElementById("feedbackSubmitBtn");
+      const feedbackResult = document.getElementById("feedbackResult");
+
+      feedbackSubmitBtn.addEventListener("click", () => {
+        const feedback = feedbackTextarea.value;
+
+        feedbackResult.textContent = `Feedback : ${feedback}`;
+      });
+
+      const addressTextarea = document.getElementById("addressTextarea");
+      const addressSubmitBtn = document.getElementById("addressSubmitBtn");
+      const addressResult = document.getElementById("addressResult");
+
+      addressSubmitBtn.addEventListener("click", () => {
+        const address = addressTextarea.value;
+
+        addressResult.textContent = `Your Address : ${address}`;
+      });
+
+      const descriptionTextarea = document.getElementById(
+        "descriptionTextarea"
+      );
+      const descriptionSubmitBtn = document.getElementById(
+        "descriptionSubmitBtn"
+      );
+      const descriptionResult = document.getElementById("descriptionResult");
+
+      descriptionSubmitBtn.addEventListener("click", () => {
+        const description = descriptionTextarea.value;
+
+        descriptionResult.textContent = `Description : ${description}`;
+      });
+    </script>
+  </body>
 </html>
