@@ -5,5 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <label for="bookReview">Enter Your Book Reviews</label>
+    <textarea id="bookReview" cols="50" rows="4"></textarea>
+    <button id="displayReviewsBtn">Display Reviews</button>
+    <p id="displayReviews"></p>
+
+    <label for="bioTextarea">Enter Your Bio:</label>
+    <textarea id="bioTextarea" cols="50" rows="4"></textarea>
+    <button id="displayBioBtn">Display Bio</button>
+    <p id="displayBio"></p>
+
+    <label for="diaryTextarea">Enter Your Personal Diary Entry:</label>
+    <textarea id="diaryTextarea" cols="50" rows="4"></textarea>
+    <button id="displayDiaryBtn">Display Diary Entry</button>
+    <div id="displayDiary"></div>
+
+    <script>
+      const bookReview = document.getElementById("bookReview");
+      const displayReviewsBtn = document.getElementById("displayReviewsBtn");
+      const displayReviews = document.getElementById("displayReviews");
+
+      displayReviewsBtn.addEventListener("click", () => {
+        const review = bookReview.value;
+
+        displayReviews.textContent = `Review : ${review} `;
+      });
+
+      const bioTextarea = document.getElementById("bioTextarea");
+      const displayBioBtn = document.getElementById("displayBioBtn");
+      const displayBio = document.getElementById("displayBio");
+
+      displayBioBtn.addEventListener("click", () => {
+        const bio = bioTextarea.value;
+
+        displayBio.innerHTML = `<i>${bio}</i>`;
+      });
+
+      const diaryTextarea = document.getElementById("diaryTextarea");
+      const displayDiaryBtn = document.getElementById("displayDiaryBtn");
+      const displayDiary = document.getElementById("displayDiary");
+
+      displayDiaryBtn.addEventListener("click", () => {
+        const entry = diaryTextarea.value;
+
+        const currentDate = new Date().toLocaleString();
+
+        displayDiary.innerHTML = `
+           <b>${currentDate}</b>
+           <p>${entry}</p>
+        `;
+      });
+    </script>
+  </body>
 </html>
