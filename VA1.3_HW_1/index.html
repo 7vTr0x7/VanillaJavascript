@@ -5,5 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <label for="bookListTextarea">Enter Your Favorite Book List:</label>
+    <textarea id="bookListTextarea" cols="50" rows="4"></textarea>
+    <button id="displayListBtn">Display List</button>
+    <p id="displayBookList"></p>
+
+    <label for="recipeTextarea">Enter recipe: </label>
+    <textarea id="recipeTextarea" cols="50" rows="4"></textarea>
+    <button id="displayRecipeBtn">Display Recipe</button>
+    <div id="displayRecipe"></div>
+
+    <label for="bioTextarea">Enter Your Personal Bio:</label>
+    <textarea id="bioTextarea" cols="50" rows="4"></textarea>
+    <button id="displayBioBtn">Display Bio</button>
+    <p id="displayBio"></p>
+
+    <label for="goalsListTextarea">Enter Your List of Goals:</label>
+    <textarea id="goalsListTextarea" cols="50" rows="4"></textarea>
+    <button id="displayGoalsListBtn">Display List</button>
+    <p id="displayGoalsList"></p>
+
+    <label for="storyTextarea">Enter Short Story: </label>
+    <textarea id="storyTextarea" cols="50" rows="4"></textarea>
+    <button id="displayStoryBtn">Display Story</button>
+    <div id="displayStory"></div>
+
+    <script>
+      const bookListTextarea = document.getElementById("bookListTextarea");
+      const displayListBtn = document.getElementById("displayListBtn");
+      const displayBookList = document.getElementById("displayBookList");
+
+      displayListBtn.addEventListener("click", () => {
+        const list = bookListTextarea.value;
+
+        displayBookList.textContent = `Book List : ${list}`;
+      });
+
+      const recipeTextarea = document.getElementById("recipeTextarea");
+      const displayRecipeBtn = document.getElementById("displayRecipeBtn");
+      const displayRecipe = document.getElementById("displayRecipe");
+
+      displayRecipeBtn.addEventListener("click", () => {
+        const recipe = recipeTextarea.value;
+        const split = recipe.split("\n\n\n");
+
+        displayRecipe.innerHTML = `
+        <p><b>Ingredients:</b> <br>
+          ${split[0]}</p>
+
+          <p> <b>Instructions:</b>
+            <br>
+         ${split[1]}</p>
+        `;
+      });
+
+      const bioTextarea = document.getElementById("bioTextarea");
+      const displayBioBtn = document.getElementById("displayBioBtn");
+      const displayBio = document.getElementById("displayBio");
+
+      displayBioBtn.addEventListener("click", () => {
+        const bio = bioTextarea.value;
+
+        displayBio.textContent = `Your Bio : ${bio}`;
+      });
+
+      const goalsListTextarea = document.getElementById("goalsListTextarea");
+      const displayGoalsListBtn = document.getElementById(
+        "displayGoalsListBtn"
+      );
+      const displayGoalsList = document.getElementById("displayGoalsList");
+
+      displayGoalsListBtn.addEventListener("click", () => {
+        const list = goalsListTextarea.value;
+
+        displayGoalsList.textContent = `Goals : ${list}`;
+      });
+
+      const storyTextarea = document.getElementById("storyTextarea");
+      const displayStoryBtn = document.getElementById("displayStoryBtn");
+      const displayStory = document.getElementById("displayStory");
+
+      displayStoryBtn.addEventListener("click", () => {
+        const story = storyTextarea.value;
+
+        displayStory.textContent = `Story : ${story}`;
+      });
+    </script>
+  </body>
 </html>
