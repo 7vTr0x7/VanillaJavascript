@@ -5,5 +5,158 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <label>Program 1 : Select Multiple Sports: </label>
+    <input type="checkbox" name="sports" value="Cricket" /> Cricket
+    <input type="checkbox" name="sports" value="Football" /> Football
+    <input type="checkbox" name="sports" value="Baseball" /> Baseball
+    <button id="displaySportsBtn">display Selected Sports</button>
+    <p id="displaySportsResult"></p>
+
+    <label>Program 2 : Choose Multiple Vacation Destination: </label>
+    <input type="checkbox" name="destination" value="Beach" /> Beach
+    <input type="checkbox" name="destination" value="Mountain" /> Mountain
+    <input type="checkbox" name="destination" value="City" /> City
+    <button id="displayDestinationBtn">display Selected Destination</button>
+    <p id="displayDestinationResult"></p>
+
+    <label>Program 3 : Select Multiple Movie Genres: </label>
+    <input type="checkbox" name="genre" value="Comedy" /> Comedy
+    <input type="checkbox" name="genre" value="Action" /> Action
+    <input type="checkbox" name="genre" value="Drama" /> Drama
+    <button id="displayGenreBtn">display Selected Genre</button>
+    <p id="displayGenreResult"></p>
+
+    <label>Program 4 : Choose Multiple Options From Restaurant Menu : </label>
+    <input type="checkbox" name="option" value="Burger" /> Burger
+    <input type="checkbox" name="option" value="Pizza" /> Pizza
+    <input type="checkbox" name="option" value="Chicken" /> Chicken
+    <button id="displayOptionBtn">display Selected Option</button>
+    <p id="displayOptionResult"></p>
+
+    <label>Program 5 : Select Multiple Fruits : </label>
+    <input type="checkbox" name="fruits" value="Mango" /> Mango
+    <input type="checkbox" name="fruits" value="Apple" /> Apple
+    <input type="checkbox" name="fruits" value="Orange" /> Orange
+    <button id="displayFruitsBtn">display Selected Fruits</button>
+    <p id="displayFruitsResult"></p>
+
+    <script>
+      const sportsCheckbox = document.getElementsByName("sports");
+      const displaySportsBtn = document.getElementById("displaySportsBtn");
+      const displaySportsResult = document.getElementById(
+        "displaySportsResult"
+      );
+
+      for (let i = 0; i < sportsCheckbox.length; i++) {
+        sportsCheckbox[i].addEventListener("change", () => {
+          let selectedSports = [];
+          for (let j = 0; j < sportsCheckbox.length; j++) {
+            if (sportsCheckbox[j].checked) {
+              selectedSports.push(sportsCheckbox[j].value);
+            }
+          }
+          displaySportsBtn.addEventListener("click", () => {
+            displaySportsResult.textContent = `Selected Sports : ${selectedSports.join(
+              ", "
+            )}`;
+          });
+        });
+      }
+
+      const destinationCheckbox = document.getElementsByName("destination");
+      const displayDestinationBtn = document.getElementById(
+        "displayDestinationBtn"
+      );
+
+      const displayDestinationResult = document.getElementById(
+        "displayDestinationResult"
+      );
+
+      for (let i = 0; i < destinationCheckbox.length; i++) {
+        destinationCheckbox[i].addEventListener("change", () => {
+          let selectedDestination = [];
+          for (let j = 0; j < destinationCheckbox.length; j++) {
+            if (destinationCheckbox[j].checked) {
+              selectedDestination.push(destinationCheckbox[j].value);
+            }
+          }
+
+          displayDestinationBtn.addEventListener("click", () => {
+            displayDestinationResult.textContent = `Selected Destinations : ${selectedDestination.join(
+              ", "
+            )}`;
+          });
+        });
+      }
+
+      const genreCheckbox = document.getElementsByName("genre");
+      const displayGenreBtn = document.getElementById("displayGenreBtn");
+      const displayGenreResult = document.getElementById("displayGenreResult");
+
+      for (let i = 0; i < genreCheckbox.length; i++) {
+        genreCheckbox[i].addEventListener("change", () => {
+          let selectedGenre = [];
+
+          for (let j = 0; j < genreCheckbox.length; j++) {
+            if (genreCheckbox[j].checked) {
+              selectedGenre.push(genreCheckbox[j].value);
+            }
+          }
+
+          displayGenreBtn.addEventListener("click", () => {
+            displayGenreResult.textContent = `Selected Genres : ${selectedGenre.join(
+              ", "
+            )}`;
+          });
+        });
+      }
+
+      const optionCheckbox = document.getElementsByName("option");
+      const displayOptionBtn = document.getElementById("displayOptionBtn");
+      const displayOptionResult = document.getElementById(
+        "displayOptionResult"
+      );
+
+      for (let i = 0; i < optionCheckbox.length; i++) {
+        optionCheckbox[i].addEventListener("change", () => {
+          let selectedOptions = [];
+          for (let j = 0; j < optionCheckbox.length; j++) {
+            if (optionCheckbox[j].checked) {
+              selectedOptions.push(optionCheckbox[j].value);
+            }
+          }
+
+          displayOptionBtn.addEventListener("click", () => {
+            displayOptionResult.textContent = `Selected Options : ${selectedOptions.join(
+              ", "
+            )}`;
+          });
+        });
+      }
+
+      const fruitsCheckbox = document.getElementsByName("fruits");
+      const displayFruitsBtn = document.getElementById("displayFruitsBtn");
+      const displayFruitsResult = document.getElementById(
+        "displayFruitsResult"
+      );
+
+      for (let i = 0; i < fruitsCheckbox.length; i++) {
+        fruitsCheckbox[i].addEventListener("change", () => {
+          let selectedFruits = [];
+          for (let j = 0; j < fruitsCheckbox.length; j++) {
+            if (fruitsCheckbox[j].checked) {
+              selectedFruits.push(fruitsCheckbox[j].value);
+            }
+          }
+
+          displayFruitsBtn.addEventListener("click", () => {
+            displayFruitsResult.textContent = `Selected Fruits : ${selectedFruits.join(
+              ", "
+            )}`;
+          });
+        });
+      }
+    </script>
+  </body>
 </html>
