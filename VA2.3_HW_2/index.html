@@ -5,5 +5,148 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <label>Choose A Season: </label>
+    <select id="seasonSelect">
+      <option value="Spring">Spring</option>
+      <option value="Summer">Summer</option>
+      <option value="Fall">Fall</option>
+      <option value="Winter">Winter</option>
+    </select>
+    <button id="displayWeather">Display Typical Weather</button>
+    <p id="seasonSelectResult"></p>
+
+    <label>Choose a Movie Genre: </label>
+    <select id="genreSelect">
+      <option value="SciFi">Science-Fiction</option>
+      <option value="Mystery">Mystery</option>
+      <option value="Romance">Romance</option>
+    </select>
+
+    <button id="displayMovie">Display Movie Recommendation</button>
+    <p id="genreSelectResult"></p>
+
+    <label>Choose a Pet: </label>
+    <select id="petSelect">
+      <option value="Dog">Dog</option>
+      <option value="Cat">Cat</option>
+      <option value="Fish">Fish</option>
+    </select>
+    <button id="funFactsBtn">Display Fun Fact</button>
+    <p id="petSelectResult"></p>
+
+    <label>Choose Musical Instrument: </label>
+    <select id="instrumentSelect">
+      <option value="Piano">Piano</option>
+      <option value="Guitar">Guitar</option>
+      <option value="Violin">Violin</option>
+    </select>
+    <p id="instrumentSelectResult"></p>
+
+    <label>Choose a Planet : </label>
+    <select id="planetSelect">
+      <option value="Earth">Earth</option>
+      <option value="Mars">Mars</option>
+      <option value="Jupiter">Jupiter</option>
+    </select>
+    <button id="displayPlanetFact">Display Planet Fact</button>
+    <p id="planetSelectResult"></p>
+
+    <script>
+      const seasonSelect = document.getElementById("seasonSelect");
+      const displayWeather = document.getElementById("displayWeather");
+      const seasonSelectResult = document.getElementById("seasonSelectResult");
+
+      seasonSelect.addEventListener("change", () => {
+        const selectedSeason = seasonSelect.value;
+
+        const typicalWeather = {
+          Spring: "Mild Temperatures and Blooming Flowers",
+          Summer: "Hot Temperatures And Sunny Days.",
+          Fall: "Cooler Temperatures And Falling Leaves",
+          Winter: "Cold Temperatures and Snowfall",
+        };
+
+        displayWeather.addEventListener("click", () => {
+          seasonSelectResult.textContent = `Typical Weather of ${selectedSeason} : ${typicalWeather[selectedSeason]} `;
+        });
+      });
+
+      const genreSelect = document.getElementById("genreSelect");
+      const displayMovie = document.getElementById("displayMovie");
+      const genreSelectResult = document.getElementById("genreSelectResult");
+
+      genreSelect.addEventListener("change", () => {
+        const selectedGenre = genreSelect.value;
+
+        const movies = {
+          SciFi: "Dune Part 2",
+          Mystery: "Zodiac",
+          Romance: "Titanic",
+        };
+
+        displayMovie.addEventListener("click", () => {
+          genreSelectResult.textContent = `Movie Recommendation For ${selectedGenre} Genre : ${movies[selectedGenre]}`;
+        });
+      });
+
+      const petSelect = document.getElementById("petSelect");
+      const petSelectResult = document.getElementById("petSelectResult");
+      const funFactsBtn = document.getElementById("funFactsBtn");
+
+      petSelect.addEventListener("change", () => {
+        const selectedPet = petSelect.value;
+
+        const funFacts = {
+          Dog: "Dogs have a remarkable sense of smell, with some breeds capable of detecting scents up to 100,000 times better than humans, making them invaluable in search and rescue missions.",
+          Cat: "Cats have a specialized collarbone that allows them to always land on their feet when they fall, a phenomenon known as the righting reflex.",
+          Fish: "Goldfish have a memory span of about three months and can distinguish between different shapes and colors, debunking the myth that they have short memories.",
+        };
+
+        funFactsBtn.addEventListener("click", () => {
+          petSelectResult.textContent = `Fun Fact About ${selectedPet} : ${funFacts[selectedPet]}`;
+        });
+      });
+
+      const instrumentSelect = document.getElementById("instrumentSelect");
+      const instrumentSelectResult = document.getElementById(
+        "instrumentSelectResult"
+      );
+
+      instrumentSelect.addEventListener("change", () => {
+        const selectedInstrument = instrumentSelect.value;
+
+        const sounds = {
+          Piano:
+            "The piano's keys unlock a symphony of harmonies, from delicate, tinkling notes reminiscent of falling raindrops to powerful, thunderous chords that resonate with depth and resonance.",
+          Guitar:
+            "The guitar's strumming produces a versatile range of sounds, from the twangy resonance of country music to the rich, deep chords of classical compositions.",
+          Violin:
+            "With its hauntingly beautiful tones, the violin's bowing evokes emotions ranging from melancholy to jubilation, capable of conveying intricate melodies with precision and passion.",
+        };
+
+        instrumentSelectResult.textContent = `Sound of ${selectedInstrument}: ${sounds[selectedInstrument]}`;
+      });
+
+      const planetSelect = document.getElementById("planetSelect");
+      const displayPlanetFact = document.getElementById("displayPlanetFact");
+      const planetSelectResult = document.getElementById("planetSelectResult");
+
+      planetSelect.addEventListener("change", () => {
+        const selectedPlanet = planetSelect.value;
+
+        const facts = {
+          Earth:
+            "Earth Supports diverse life forms and ecosystems, third planet from the Sun",
+          Mars: "Known as the Red Planet, shows evidence of past water activity.",
+          Jupiter:
+            " Largest planet in the Solar System, characterized by the Great Red Spot storm.",
+        };
+
+        displayPlanetFact.addEventListener("click", () => {
+          planetSelectResult.textContent = `Planet Fact of ${selectedPlanet} : ${facts[selectedPlanet]}`;
+        });
+      });
+    </script>
+  </body>
 </html>
