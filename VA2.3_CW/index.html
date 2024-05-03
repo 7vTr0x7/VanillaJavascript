@@ -5,5 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <label>Select a Color : </label>
+    <select id="selectColor">
+      <option value="Red">Red</option>
+      <option value="Black">Black</option>
+      <option value="Gray">Gray</option>
+    </select>
+    <p id="selectedColorResult"></p>
+
+    <label>Select a Day</label>
+    <select id="daySelectDropdown">
+      <option value="Sunday">Sunday</option>
+      <option value="Monday">Monday</option>
+      <option value="Tuesday">Tuesday</option>
+    </select>
+    <p id="daySelectResult"></p>
+
+    <label>Select a Country</label>
+    <select id="countySelect">
+      <option value="india">India</option>
+      <option value="japan">Japan</option>
+      <option value="usa">USA</option>
+    </select>
+
+    <p id="countySelectResult"></p>
+
+    <script>
+      const colorSelect = document.getElementById("selectColor");
+      const selectedColorResult = document.getElementById(
+        "selectedColorResult"
+      );
+
+      colorSelect.addEventListener("change", () => {
+        const selectedColor = colorSelect.value;
+
+        selectedColorResult.textContent = `Selected Color : ${selectedColor}`;
+      });
+
+      const daySelectDropdown = document.getElementById("daySelectDropdown");
+      const daySelectResult = document.getElementById("daySelectResult");
+
+      daySelectDropdown.addEventListener("change", () => {
+        const selectedDay = daySelectDropdown.value;
+
+        if (selectedDay === "Sunday" || selectedDay === "Saturday") {
+          daySelectResult.textContent = `IT is a Weekend`;
+        } else {
+          daySelectResult.textContent = `IT is a Weekday`;
+        }
+      });
+
+      const countySelect = document.getElementById("countySelect");
+      const countySelectResult = document.getElementById("countySelectResult");
+
+      countySelect.addEventListener("change", () => {
+        const selectedCountry = countySelect.value;
+
+        const capitals = {
+          india: "Delhi",
+          japan: "Tokyo",
+          usa: "Washington D.C",
+        };
+
+        countySelectResult.textContent = `Capital Of ${selectedCountry} : ${capitals[selectedCountry]}`;
+      });
+    </script>
+  </body>
 </html>
