@@ -5,5 +5,148 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <label>Choose Movie Genre</label>
+    <select id="genreSelect">
+      <option value="Action">Action</option>
+      <option value="Drama">Drama</option>
+      <option value="Comedy">Comedy</option>
+    </select>
+    <p id="genreSelectResult"></p>
+
+    <label>Select a Weather Condition</label>
+    <select id="weatherSelect">
+      <option value="Sunny">Sunny</option>
+      <option value="Rainy">Rainy</option>
+      <option value="Snowy">Snowy</option>
+    </select>
+    <p id="weatherSelectResult"></p>
+
+    <label>Select a Language</label>
+    <select id="languageSelect">
+      <option value="English">English</option>
+      <option value="Japanese">Japanese</option>
+      <option value="Spanish">Spanish</option>
+    </select>
+    <button id="greetingBtn">Display Greeting</button>
+    <p id="languageSelectResult"></p>
+
+    <label>Choose A Musical Instrument</label>
+    <select id="instrumentSelect">
+      <option value="Piano">Piano</option>
+      <option value="Guitar">Guitar</option>
+      <option value="Violin">Violin</option>
+    </select>
+    <button id="funFactsBtn">Display Fun Facts</button>
+    <p id="instrumentSelectResult"></p>
+
+    <label>Select Pet</label>
+    <select id="petSelect">
+      <option value="Dog">Dog</option>
+      <option value="Cat">Cat</option>
+      <option value="Fish">Fish</option>
+    </select>
+    <button id="descriptionBtn">Display Pet Description</button>
+    <p id="petSelectResult"></p>
+
+    <script>
+      const genreSelect = document.getElementById("genreSelect");
+      const genreSelectResult = document.getElementById("genreSelectResult");
+
+      genreSelect.addEventListener("change", () => {
+        const selectedGenre = genreSelect.value;
+
+        const movies = {
+          Action: "The Dark Knight",
+          Drama: "The Shawshank Redemption",
+          Comedy: "Home Alone",
+        };
+
+        genreSelectResult.textContent = `Recommended ${selectedGenre} Movie : ${movies[selectedGenre]}`;
+      });
+
+      const weatherSelect = document.getElementById("weatherSelect");
+      const weatherSelectResult = document.getElementById(
+        "weatherSelectResult"
+      );
+
+      weatherSelect.addEventListener("change", () => {
+        const selectedWeather = weatherSelect.value;
+
+        const activities = {
+          Sunny: "Picnic in Park",
+          Rainy: "Movie Day",
+          Snowy: "Build Snowman",
+        };
+
+        if (selectedWeather === "Rainy") {
+          weatherSelectResult.textContent = ` Indoor Activity  Suggestion: ${activities[selectedWeather]} `;
+        } else {
+          weatherSelectResult.textContent = ` Outdoor Activity  Suggestion: ${activities[selectedWeather]} `;
+        }
+      });
+
+      const languageSelect = document.getElementById("languageSelect");
+      const languageSelectResult = document.getElementById(
+        "languageSelectResult"
+      );
+      const greetingBtn = document.getElementById("greetingBtn");
+
+      languageSelect.addEventListener("change", () => {
+        const selectedLang = languageSelect.value;
+
+        const greetings = {
+          English: "Hello!",
+          Japanese: "こんにちは",
+          Spanish: "Hola!",
+        };
+
+        greetingBtn.addEventListener("click", () => {
+          languageSelectResult.textContent = `Common Greetings : ${greetings[selectedLang]}`;
+        });
+      });
+
+      const instrumentSelect = document.getElementById("instrumentSelect");
+      const instrumentSelectResult = document.getElementById(
+        "instrumentSelectResult"
+      );
+
+      const funFactsBtn = document.getElementById("funFactsBtn");
+
+      instrumentSelect.addEventListener("change", () => {
+        const selectedInstrument = instrumentSelect.value;
+
+        const funFacts = {
+          Piano:
+            " The piano has more than 12,000 parts, making it one of the most complex musical instruments. Despite its complexity, a skilled piano technician can assemble one in about six months.",
+          Guitar:
+            "The world's largest playable guitar was crafted by students and faculty at Conroe Independent School District in Texas, USA, measuring a staggering 43.5 feet long.",
+          Violin:
+            "The world's most expensive violin ever sold is the Lady Blunt Stradivarius, fetching a price of $15.9 million at a 2011 auction. It was named after its previous owner, Lady Anne Blunt",
+        };
+
+        funFactsBtn.addEventListener("click", () => {
+          instrumentSelectResult.textContent = `Fun Fact of  ${selectedInstrument} : ${funFacts[selectedInstrument]} `;
+        });
+      });
+
+      const petSelect = document.getElementById("petSelect");
+      const descriptionBtn = document.getElementById("descriptionBtn");
+      const petSelectResult = document.getElementById("petSelectResult");
+
+      petSelect.addEventListener("change", () => {
+        const selectedPet = petSelect.value;
+
+        const description = {
+          Cat: "Known for their independent nature, cats are beloved companions with a penchant for lounging in sunny spots and displaying quirky behaviors.",
+          Dog: " Renowned for their loyalty and diverse breeds, dogs are cherished family members, offering companionship, protection, and endless tail wags.",
+          Fish: "With their serene underwater world and mesmerizing colors, fish bring tranquility to aquariums, captivating observers with their graceful movements.",
+        };
+
+        descriptionBtn.addEventListener("click", () => {
+          petSelectResult.textContent = `Pet Description of ${selectedPet} : ${description[selectedPet]}`;
+        });
+      });
+    </script>
+  </body>
 </html>
