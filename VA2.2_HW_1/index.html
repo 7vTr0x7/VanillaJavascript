@@ -5,5 +5,149 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <label>Program 1: Select a Music Genre:</label>
+
+    <input type="radio" name="genre" value="Pop" />Pop
+
+    <input type="radio" name="genre" value="Rock" />Rock
+
+    <input type="radio" name="genre" value="Hip-Hop" />Hip-Hop
+
+    <p id="musicGenreResult"></p>
+
+    <label>Program 2: Choose a Language Preference:</label>
+
+    <input type="radio" name="language" value="English" />English
+
+    <input type="radio" name="language" value="Japanese" />Japanese
+
+    <input type="radio" name="language" value="Spanish" />Spanish
+
+    <p id="languageResult"></p>
+
+    <label>Program 3: Select a Job Role:</label>
+
+    <input type="radio" name="role" value="Developer" />Developer
+
+    <input type="radio" name="role" value="Designer" />Designer
+
+    <input type="radio" name="role" value="Manager" />Manager
+    <button id="displayJobRole">display Job Role</button>
+    <p id="roleResult"></p>
+
+    <label>Program 4: Choose Favorite Hobby:</label>
+
+    <input type="radio" name="hobby" value="Games" />Games
+
+    <input type="radio" name="hobby" value="Sports" />Sports
+
+    <input type="radio" name="hobby" value="Reading" />Reading
+    <button id="displayHobby">display Hobby</button>
+    <p id="hobbyResult"></p>
+
+    <label>Program 5: Select Clothing Style:</label>
+
+    <input type="radio" name="style" value="Casual" />Casual
+
+    <input type="radio" name="style" value="Formal" />Formal
+
+    <input type="radio" name="style" value="Sporty" />Sporty
+    <button id="displayStyle">display Style</button>
+    <p id="styleResult"></p>
+
+    <script>
+      const genreRadio = document.getElementsByName("genre");
+      const musicGenreResult = document.getElementById("musicGenreResult");
+
+      for (let i = 0; i < genreRadio.length; i++) {
+        genreRadio[i].addEventListener("change", () => {
+          const selectedGenre = document.querySelector(
+            `input[name="genre"]:checked`
+          );
+
+          musicGenreResult.textContent = `Selected Music Genre : ${selectedGenre.value}`;
+        });
+      }
+
+      const languageRadio = document.getElementsByName("language");
+      const languageResult = document.getElementById("languageResult");
+
+      for (let i = 0; i < languageRadio.length; i++) {
+        languageRadio[i].addEventListener("change", () => {
+          const selectedLang = document.querySelector(
+            `input[name="language"]:checked`
+          );
+
+          languageResult.textContent = `Selected Language : ${selectedLang.value}`;
+        });
+      }
+
+      const roleRadio = document.getElementsByName("role");
+      const roleResult = document.getElementById("roleResult");
+      const displayJobRole = document.getElementById("displayJobRole");
+
+      let selectedRole;
+
+      for (let i = 0; i < roleRadio.length; i++) {
+        roleRadio[i].addEventListener("change", () => {
+          selectedRole = document.querySelector(
+            `input[name="role"]:checked`
+          ).value;
+        });
+      }
+
+      displayJobRole.addEventListener("click", () => {
+        if (selectedRole) {
+          roleResult.textContent = `Selected Job Role : ${selectedRole}`;
+        } else {
+          roleResult.textContent = "Select Job Role.";
+        }
+      });
+
+      const hobbyRadio = document.getElementsByName("hobby");
+      const displayHobby = document.getElementById("displayHobby");
+      const hobbyResult = document.getElementById("hobbyResult");
+
+      let selectedHobby;
+
+      for (let i = 0; i < hobbyRadio.length; i++) {
+        hobbyRadio[i].addEventListener("change", () => {
+          selectedHobby = document.querySelector(
+            `input[name="hobby"]:checked`
+          ).value;
+        });
+      }
+
+      displayHobby.addEventListener("click", () => {
+        if (selectedHobby) {
+          hobbyResult.textContent = `Selected Hobby : ${selectedHobby}`;
+        } else {
+          hobbyResult.textContent = "Select Hobby.";
+        }
+      });
+
+      const styleRadio = document.getElementsByName("style");
+      const displayStyle = document.getElementById("displayStyle");
+      const styleResult = document.getElementById("styleResult");
+
+      let selectedStyle;
+
+      for (let i = 0; i < styleRadio.length; i++) {
+        styleRadio[i].addEventListener("change", () => {
+          selectedStyle = document.querySelector(
+            `input[name="style"]:checked`
+          ).value;
+        });
+      }
+
+      displayStyle.addEventListener("click", () => {
+        if (selectedStyle) {
+          styleResult.textContent = `Selected Clothing Style: ${selectedStyle} `;
+        } else {
+          styleResult.textContent = `Select Clothing Style`;
+        }
+      });
+    </script>
+  </body>
 </html>
