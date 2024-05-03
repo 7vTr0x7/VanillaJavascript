@@ -5,5 +5,135 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <label>Program 1: Select a Mood:</label>
+    <input type="radio" name="mood" value="Happy" />Happy
+    <input type="radio" name="mood" value="Sad" />Sad
+    <input type="radio" name="mood" value="Exited" />Exited
+    <p id="moodResult"></p>
+
+    <label>Program 2: Choose a Book Genre:</label>
+    <input type="radio" name="genre" value="Mystery" />Mystery
+    <input type="radio" name="genre" value="Thriller" />Thriller
+    <input type="radio" name="genre" value="Sci-Fi" />Sci-Fi
+    <button id="displayBookGenre">Display Book Recommendation</button>
+    <p id="genreResult"></p>
+
+    <label>Program 3: Select Clothing Style:</label>
+
+    <input type="radio" name="style" value="Casual" />Casual
+
+    <input type="radio" name="style" value="Formal" />Formal
+
+    <input type="radio" name="style" value="Sporty" />Sporty
+    <button id="displayStyle">display Style</button>
+    <p id="styleResult"></p>
+
+    <label>Program 4: Choose Weather Preference:</label>
+    <input type="radio" name="weather" value="Sunny" />Sunny
+    <input type="radio" name="weather" value="Rainy" />Rainy
+    <input type="radio" name="weather" value="Snowy" />Snowy
+    <button id="displayWeather">Display Weather Preference</button>
+    <p id="weatherResult"></p>
+
+    <label>Select Travel Mode</label>
+    <input type="radio" name="mode" value="Car" />Car
+    <input type="radio" name="mode" value="Train" />Train
+    <input type="radio" name="mode" value="Plane" />Plane
+    <p id="modeResult"></p>
+
+    <script>
+      const moodRadio = document.getElementsByName("mood");
+      const moodResult = document.getElementById("moodResult");
+
+      for (let i = 0; i < moodRadio.length; i++) {
+        moodRadio[i].addEventListener("change", () => {
+          const selectedMood = document.querySelector(
+            `input[name="mood"]:checked`
+          ).value;
+
+          moodResult.textContent = `Selected Mood : ${selectedMood}`;
+        });
+      }
+
+      const bookGenreRadio = document.getElementsByName("genre");
+      const displayBookGenre = document.getElementById("displayBookGenre");
+      const genreResult = document.getElementById("genreResult");
+
+      let selectedGenre;
+
+      for (let i = 0; i < bookGenreRadio.length; i++) {
+        bookGenreRadio[i].addEventListener("change", () => {
+          selectedGenre = document.querySelector(
+            `input[name="genre"]:checked`
+          ).value;
+        });
+      }
+
+      displayBookGenre.addEventListener("click", () => {
+        if (selectedGenre) {
+          genreResult.textContent = ` Book Recommendation for ${selectedGenre} Genre. `;
+        } else {
+          genreResult.textContent = `Select Book Genre. `;
+        }
+      });
+
+      const styleRadio = document.getElementsByName("style");
+      const displayStyle = document.getElementById("displayStyle");
+      const styleResult = document.getElementById("styleResult");
+
+      let selectedStyle;
+
+      for (let i = 0; i < styleRadio.length; i++) {
+        styleRadio[i].addEventListener("change", () => {
+          selectedStyle = document.querySelector(
+            `input[name="style"]:checked`
+          ).value;
+        });
+      }
+
+      displayStyle.addEventListener("click", () => {
+        if (selectedStyle) {
+          styleResult.textContent = `Selected Clothing Style: ${selectedStyle} `;
+        } else {
+          styleResult.textContent = `Select a Clothing Style`;
+        }
+      });
+
+      const weatherRadio = document.getElementsByName("weather");
+      const displayWeather = document.getElementById("displayWeather");
+      const weatherResult = document.getElementById("weatherResult");
+
+      let selectedWeather;
+
+      for (let i = 0; i < weatherRadio.length; i++) {
+        weatherRadio[i].addEventListener("change", () => {
+          selectedWeather = document.querySelector(
+            `input[name="weather"]:checked`
+          ).value;
+        });
+      }
+
+      displayWeather.addEventListener("click", () => {
+        if (selectedWeather) {
+          weatherResult.textContent = `Selected Weather Preference : ${selectedWeather} `;
+        } else {
+          weatherResult.textContent = `Select Weather Preference  `;
+        }
+      });
+
+      const modeRadio = document.getElementsByName("mode");
+      const modeResult = document.getElementById("modeResult");
+
+      for (let i = 0; i < modeRadio.length; i++) {
+        modeRadio[i].addEventListener("change", () => {
+          const selectedMode = document.querySelector(
+            `input[name="mode"]:checked`
+          );
+
+          modeResult.textContent = `Selected Travel Mode : ${selectedMode.value}`;
+        });
+      }
+    </script>
+  </body>
 </html>
